@@ -1,0 +1,45 @@
+CREATE TABLE customer(
+	customer_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(100),
+	last_name VARCHAR(100),
+	address VARCHAR(100),
+	billing_info VARCHAR(100)
+);
+-- Create Salesperson Table
+CREATE TABLE salesperson(
+	ID_ SERIAL PRIMARY KEY,
+	Name_ VARCHAR(100),
+	Phone_number VARCHAR(15),
+	Email VARCHAR(150)
+);
+-- Create Business Dept Table
+CREATE TABLE business(
+	Invoice SERIAL PRIMARY KEY,
+	Vehicle VARCHAR(100),
+	Salesperson VARCHAR(100),
+	Payment VARCHAR(100)
+);
+-- Create Cars Table
+CREATE TABLE Cars(
+	Vehicle SERIAL PRIMARY KEY,
+	Make VARCHAR(100),
+	Model VARCHAR(100),
+	Year_ VARCHAR(100),
+	Color VARCHAR(100)
+);
+-- Create Service Dept table
+CREATE TABLE Service(
+	Vehicle SERIAL PRIMARY KEY,
+	Service VARCHAR(100),
+	lABOUR VARCHAR(100),
+	PART VARCHAR(100),
+	Cars INTEGER NOT NULL, -- NOT NULL CONSTRAINT means this can't be empty
+	FOREIGN KEY(Vehicle) REFERENCES Cars(Vehicle)
+	);
+	-- Create Mechanic Table
+CREATE TABLE Mechanic(
+	Mechanic_id SERIAL PRIMARY KEY,
+	hours VARCHAR(100),
+	Rate VARCHAR(100),
+	comment_ VARCHAR(150)
+);
